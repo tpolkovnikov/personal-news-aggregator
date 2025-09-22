@@ -7,4 +7,4 @@
 - pip install fastapi uvicorn[standard]
 
 #### Запускать проект:
-- uvicorn main:app --reload
+- uvicorn main:app --reload 
