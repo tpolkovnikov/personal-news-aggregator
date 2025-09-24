@@ -5,12 +5,27 @@
  - Выполнить команду: `venv\Scripts\activate` (Windows)
  - `source venv/bin/activate` (linux)
 
+ - Если не получается делать `Get-ExecutionPolicy`clea
+
+ Get-ExecutionPolicy
+# если вернулось Restricted/AllSigned — разрешите локальные скрипты:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+
  Если в приглашении строки появилось (venv) - всё отлично!
 
  Для установки нужных зависимостей прописать: `pip install -r requirements.txt`
  Для записи актуальных зависимостей в файл прописать: `pip freeze > requirements.txt`
 
  Чтобы выйти из окружения: `deactivate`
+
+
+
+- Запуск backend-а `uvicorn main:app --host 0.0.0.0 --port 8000 --reload`
+
+- Запустить frontend `npm install` и `npm start`
+
+
 
 
 

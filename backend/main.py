@@ -1,8 +1,18 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 import feedparser
 
 app = FastAPI()
+
+# Enable CORS for local frontend (http://localhost:3000)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def read_root():
@@ -39,4 +49,4 @@ def get_rss(url: Optional[str] = None, limit: int = 10):
         "items": items,
     }
 
-get_rss()
+# Do not execute on import
